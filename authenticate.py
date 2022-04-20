@@ -1,4 +1,5 @@
 # Install Libraries
+import yfinance as yf
 from textblob import TextBlob
 import sys
 import tweepy
@@ -7,6 +8,8 @@ import pandas as pd
 import numpy as np
 import nltk
 ## Polygon.io modules
+from polygon import RESTClient
+import datetime
 import polygon
 from setuptools import setup, find_packages
 from polygon import WebSocketClient, STOCKS_CLUSTER
@@ -24,6 +27,8 @@ author
 api=tweepy.API(author)
 
 ##Initialize the Polygon API
-polyApiKey='0dQTVnBrippZ1p5OmMHXgv6pa0A8k8aq'
+##message='Successful Connection'
+##polyApiKey='0dQTVnBrippZ1p5OmMHXgv6pa0A8k8aq'
+
 
 
