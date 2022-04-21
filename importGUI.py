@@ -1,11 +1,15 @@
 import sys
-from PyQt5.QtWidgets import QApplication, QDialog
-from ui_imagedialog import Ui_ImageDialog
+from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QTextEdit
+from PyQt5 import uic
+
+class UI(QMainWindow):
+	def __init__(self):
+		super(UI, self).__init__()
+
+		uic.loadUi("GUI.ui", self)
+
+		self.show()
 
 app = QApplication(sys.argv)
-window = QDialog()
-ui = Ui_ImageDialog()
-ui.setupUi(window)
-
-window.show()
-sys.exit(app.exec_())
+UIWindow = UI()
+app.exec_()
