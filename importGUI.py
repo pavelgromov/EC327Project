@@ -5,7 +5,7 @@ from PyQt5 import uic
 class UI(QMainWindow):
 	def __init__(self):
 		super(UI, self).__init__()
-
+		self.centralWidget=QtWidgets.QWidget(MainWindow)
 		uic.loadUi("GUI.ui", self)
 
 		self.show()
