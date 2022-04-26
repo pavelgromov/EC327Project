@@ -19,11 +19,11 @@ import tweepy
 # ##import re
 # import string
 ##Initialize the Twitter API
-apiKey='XtJ91BCEHLOrx9cKn91FLtmf4'
-apiSecretKey='UeV7mL55dTxlh1S3t8NUUwHhbEQOPEwMDQeeU2UFxsGNgpgrUv'
-bearToken='AAAAAAAAAAAAAAAAAAAAAIoZbgEAAAAADI59EaPi1JkkvfMphi7skeRhNaY%3DKDgMmE9DsJwAfthQBZmOaUDCEPe8iuNn6EY81lwka4feweJkqH'
+apiKey='uhyiFL7RgdPSz606cTUyBCi0n'
+apiSecretKey='I2UFh9SVvbA2JXjowapb39IlrzNk6C38DPRf8I63smuSjyOV1I'
+bearToken='AAAAAAAAAAAAAAAAAAAAAIoZbgEAAAAAi7Qg67XSOnwbDuQ5Xxltf3djyZg%3DCjfKZ0knyALCTJBRTxlu1fmumEFQxfbtEEWccC3z7YQ91CqWBg'
 author=tweepy.AppAuthHandler(apiKey,apiSecretKey)
-author
+##author
 api=tweepy.API(author)
 
 ##Initialize the Polygon API
