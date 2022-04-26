@@ -16,7 +16,7 @@ import loadGUI
 ##print(str(getOpenPrice('AAPL')))
 
 # Creates generic list of stocks that user can add to
-listOfStocks = ['AAPL', 'SPY', 'MSFT', 'TSLA']
+##listOfStocks = ['AAPL', 'SPY', 'MSFT', 'TSLA']
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
