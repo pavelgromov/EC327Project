@@ -1,6 +1,11 @@
+import sys
+import subprocess
+
 # Install Libraries
-!pip install textblob
-!pip install tweepy
+
+# implement pip as a subprocess:
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'textblob'])
+subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'tweepy'])
 
 # Import Libraries
 
@@ -16,7 +21,6 @@ import pycountry
 import re
 import string
 
-from wordcloud import WordCloud, STOPWORDS
 from PIL import Image
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
 from langdetect import detect
@@ -39,7 +43,7 @@ api = tweepy.API(auth)
 def percentage(part,whole):
     return 100 * float(part)/float(whole) 
 
-keyword = input("Please enter keyword or hashtag to search: ") #user input from text box in GUI
+keyword = AAPL #user input from text box in GUI
 noOfTweet = 250 #we set here
 
 
