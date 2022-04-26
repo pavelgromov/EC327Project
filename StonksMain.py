@@ -5,6 +5,8 @@ from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import newGui
 import pandas as pd
 import numpy
+import importPackages
+
 class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow):
 	def __init__(self, parent=None):
 		super(StonksGui, self).__init__(parent)
