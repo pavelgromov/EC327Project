@@ -27,10 +27,10 @@ class Ui_MainWindow(object):
         self.label_2.setGeometry(QtCore.QRect(240, 200, 101, 41))
         self.label_2.setObjectName("label_2")
         self.graphicsView = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView.setGeometry(QtCore.QRect(400, 90, 256, 192))
+        self.graphicsView.setGeometry(QtCore.QRect(400, 21, 351, 261))
         self.graphicsView.setObjectName("graphicsView")
         self.graphicsView_2 = QtWidgets.QGraphicsView(self.centralwidget)
-        self.graphicsView_2.setGeometry(QtCore.QRect(400, 300, 256, 192))
+        self.graphicsView_2.setGeometry(QtCore.QRect(400, 300, 351, 241))
         self.graphicsView_2.setObjectName("graphicsView_2")
         self.pushButton = QtWidgets.QPushButton(self.centralwidget)
         self.pushButton.setGeometry(QtCore.QRect(280, 100, 113, 32))
@@ -89,3 +89,13 @@ class Ui_MainWindow(object):
         self.label_9.setText(_translate("MainWindow", "TextLabel"))
         self.label_10.setText(_translate("MainWindow", "TextLabel"))
         self.label_11.setText(_translate("MainWindow", "TextLabel"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec_())

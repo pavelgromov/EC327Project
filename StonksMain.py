@@ -1,7 +1,9 @@
 import sys
 #from typing_extensions import Self
+import matplotlib.pyplot as plot
 from stockAnalysisFunctions import *
-from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QTextEdit
+from SentimentV3 import *
+from PyQt5.QtWidgets import QApplication, QDialog, QMainWindow, QTextEdit, QGraphicsScene, QGraphicsView
 from PyQt5 import QtCore, QtGui, QtWidgets, uic
 import newGui
 import pandas as pd
@@ -31,6 +33,7 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow):
 
     def enterPressed(self):
         self.pushButton.clicked.connect(self.getinfo)
+        self.pushButton.clicked.connect(self.makePlot)
 
     def getinfo(self):
         stock = self.lineEdit.text()
@@ -45,13 +48,25 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow):
         self.label_8.setText(YearHigh)
         self.label_11.setText(YearLow)
 
+    def makePlot(self):
+        stock = self.lineEdit.text()
+        tweets=get_tweets(stock)
+        score=getPolarity(tweets)
+        label='Negative', 'Neutral', 'Postive'
+        chunks=[score[0]*100, score[1]*100, score[2]*100]
+        sep=(0,0,0.1)
+        fig1,ax1=plot.subplots()
+        ax1.pie(chunks,explode=sep,labels=label,autopct='%1.1f%%')
+        ax1.axis('equal')
+        ##plot.show()
+        self.graphicsView=plot.PlotWidget(self.centralwidget)
 
 def main():
     app = QApplication(sys.argv)
     form = StonksGui()
     form.show()
     app.exec()
-
+    
 
 if __name__ == '__main__':
     main()
