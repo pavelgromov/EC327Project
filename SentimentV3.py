@@ -1,7 +1,7 @@
 import os
 import csv
 import json
-from turtle import clear
+##from turtle import clear
 import matplotlib.pyplot as plot
 import requests
 import pandas as pd

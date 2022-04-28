@@ -47,7 +47,7 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow):
         # self.label_6.setText(closePrice)
         self.label_8.setText(YearHigh)
         self.label_11.setText(YearLow)
-
+'''
     def makePlot(self):
         stock = self.lineEdit.text()
         tweets=get_tweets(stock)
@@ -60,7 +60,7 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow):
         ax1.axis('equal')
         ##plot.show()
         self.graphicsView=plot.PlotWidget(self.centralwidget)
-
+'''
 def main():
     app = QApplication(sys.argv)
     form = StonksGui()
