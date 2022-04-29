@@ -1,8 +1,7 @@
-import authenticate
+
 import yfinance as yf
 import datetime
 from datetime import date
-from authenticate import *
 
 
 # Gets today's date and formats it in a way that is used by yfinance

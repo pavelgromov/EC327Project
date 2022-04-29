@@ -1,5 +1,4 @@
 import sys
-# from typing_extensions import Self
 import matplotlib.pyplot as plot
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg 
 from matplotlib.figure import Figure
@@ -50,14 +49,15 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow,QGraphicsView,QGraph
 
     def getinfo(self):
         stock = self.lineEdit.text()
-        currPrice = str(getStockPrice(stock))
-        openPrice = str(getOpenPrice(stock))
-        YearHigh = str(getYearlyHigh(stock))
-        YearLow = str(getYearlyLow(stock))
-        # closePrice=str(getClosePrice(stock))
+        stock = stock.capitalize()
+        currPrice = str(round(getStockPrice(stock),2))
+        openPrice = str(round(getOpenPrice(stock),2))
+        YearHigh = str(round(getYearlyHigh(stock),2))
+        YearLow = str(round(getYearlyLow(stock),2))
+        closePrice=str(round(getClosePrice(stock),2))
         self.label.setText(currPrice)
         self.label_2.setText(openPrice)
-        # self.label_6.setText(closePrice)
+        self.label_6.setText(closePrice)
         self.label_8.setText(YearHigh)
         self.label_11.setText(YearLow)
 
