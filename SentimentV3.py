@@ -20,43 +20,29 @@ sentiments = []
 client=tw.Client(bearer_token,return_type=requests.Response)
     
 
-
-def create_headers(bearer_token):
-    headers = {"Authorization": "Bearer {}".format(bearer_token)}
-    return headers
-
-def clean(tweet):
-    return str(tweet).encode('ascii', 'ignore').decode('UTF-8')
-
-
-def connect_to_endpoint(url, headers):
-    response = requests.request("GET", url, headers=headers)
-    if response.status_code != 200:
-        raise Exception(response.status_code, response.text)
-    return response.json()
-
 def get_tweets(stock):
     ticker=str(stock)
     start_time=datetime.now()
     expansions=None
     endtime= datetime.now() - timedelta(days=7)
     
-    result=client.search_recent_tweets(ticker,max_results=100)
+    result=client.search_recent_tweets(ticker,max_results=100,tweet_fields="text")
     result=result.json()
     ##print(result.json())
     #print(result)
     
-    #res=clean(result)
-    #list=json.loads(res)
-    result=json.dumps(result, indent=4, sort_keys=True)
-    with open('result.json()', 'w') as f:
-        json.dump(result, f)
-    return result
     
+    result=json.dumps(result, indent=4, sort_keys=True)
+    with open('result.json', 'w') as f:
+        json.dump(result, f)
+    res=clean(result)
+    list=json.loads(res)
+    return result
+   
 def getPolarity(tweets):
     cleaning=tweets
     score=analyzer.polarity_scores(tweets)
-    print(score)
+    #print(score)
     scores=score.values()
     scores_list=list(scores)
     negative=scores_list[0]
@@ -87,14 +73,21 @@ def clean(tweets):
     result=[word for word in result if word not in dumbwords]
     return tweets
    
-       
 
 stock='APPL'
 tweets=get_tweets(stock)
 clean(tweets)
-
-
 '''
+def connect_to_endpoint(url, headers):
+    response = requests.request("GET", url, headers=headers)
+    if response.status_code != 200:
+   #     raise Exception(response.status_code, response.text)
+    #return response.json()
+
+def create_headers(bearer_token):
+    headers = {"Authorization": "Bearer {}".format(bearer_token)}
+    return headers
+
 def makePlot(stock):
     tweets=get_tweets(stock)
     score=getPolarity(tweets)
