@@ -53,12 +53,12 @@ def getPolarity(tweets):
     return scores_list
 
 def clean(tweets):
+    tweets=str(tweets)
     numbers = ['1','2','3','4','5','6','7','8','9','0']
     dumbwords=["id","RT","text", "u"]
     result= tweets.lower()
     result = re.sub(r"https\S+", "", result)
     result = re.sub(r"www.\S+", "", result)
-    #result = re.sub()
     result= re.sub("@[A-Za-z0-9_]+","", result)
     result= re.sub("#[A-Za-z0-9_]+","", result)
     result= re.sub('[()!?]', ' ', result)

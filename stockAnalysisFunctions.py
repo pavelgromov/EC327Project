@@ -13,21 +13,33 @@ def getStockPrice(ticker):
     tick=yf.Ticker(ticker)
     data=tick.history()
     lastPrice=data['Close'].iloc[-1]
-    return lastPrice
+    if(lastPrice==None):
+        return 0
+    else:
+        return lastPrice
+    
 
 def getOpenPrice(ticker):
     '''gets opening price of a stock'''
+    
     tick = yf.Ticker(ticker)
     data = tick.history()
     openPrice = data['Open'][todaysDate]
-    return openPrice
+    if(openPrice==None):
+        return 0
+    else:
+        return openPrice
 
 def getClosePrice(ticker):
     '''gets closing price of a stock'''
     tick = yf.Ticker(ticker)
     data = tick.history(period='1d')
     closePrice = data['Close'][0]
-    return closePrice
+    if(closePrice==None):
+        return 0
+    else:
+        return closePrice
+    
 
 def getYearlyHigh(ticker):
     timeframe=yf.download(ticker,period="1y",auto_adjust=True,prepost=True,threads=True)
