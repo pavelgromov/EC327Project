@@ -51,15 +51,15 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
     def enterPressed(self):
         stock=self.lineEdit.text()
         stocklist=pd.read_csv('nasdaq-listed-symbols_csv.csv')
-        print(stocklist)
         if stock=='':
             self.label_5.setText("Stock Twitter Analysis")
         elif stock!='':
-            for i in stocklist.index:
+            i=0
+            while(i<len(stocklist)):
                 if stocklist[i]!=stock:
-                    print(i)
                     self.label_5.setText("Stock Twitter Analysis")
-                elif i==stock:
+                    i=i+1
+                elif stocklist[i]==stock:
                     self.getinfo()
                     self.makePlot()
             #self.pushButton.clicked.connect(self.getinfo)
