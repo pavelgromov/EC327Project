@@ -65,39 +65,26 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
         stock = stock.capitalize()
         if stock == '':
             self.label_5.setText("Stock Twitter Analysis")
-
-
         else:
             ##stock = stock.capitalize()
             currPrice = str(round(getStockPrice(stock), 2))
-            if currPrice == ' ':
-                self.label.setText('0')
-            else:
-                self.label.setText(currPrice)
+            self.label.setText(currPrice)
 
             YearHigh = str(round(getYearlyHigh(stock), 2))
-            if YearHigh == ' ':
-                self.label_8.setText('0')
-            else:
-                self.label_8.setText(YearHigh)
+            ##self.label_8.setText('0')
+            self.label_8.setText(YearHigh)
 
             YearLow = str(round(getYearlyLow(stock), 2))
-            if YearLow == ' ':
-                self.label_11.setText('0')
-            else:
-                self.label_11setText(YearLow)
+            ##self.label_11.setText('0')
+            self.label_11setText(YearLow)
 
             openPrice = str(round(getOpenPrice(stock), 2))
-            if openPrice == ' ':
-                self.label_2.setText('0')
-            else:
-                self.label_2.setText(openPrice)
+            ##self.label_2.setText('0')
+            self.label_2.setText(openPrice)
 
             closePrice = str(round(getClosePrice(stock), 2))
-            if closePrice == ' ':
-                self.label_6.setText(closePrice)
-            else:
-                self.label_6.setText(closePrice)
+            ##self.label_6.setText(closePrice)
+            self.label_6.setText(closePrice)
         # openPrice = str(round(getOpenPrice(stock),2))
         # YearLow = str(round(getYearlyLow(stock),2))
         # closePrice=str(round(getClosePrice(stock),2))

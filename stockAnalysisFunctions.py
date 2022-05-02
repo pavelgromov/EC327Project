@@ -24,7 +24,7 @@ def getOpenPrice(ticker):
     
     tick = yf.Ticker(ticker)
     data = tick.history()
-    openPrice = data['Open'][todaysDate]
+    openPrice = data['Open'][-1]
     if(openPrice==None):
         return 0
     else:
@@ -33,8 +33,8 @@ def getOpenPrice(ticker):
 def getClosePrice(ticker):
     '''gets closing price of a stock'''
     tick = yf.Ticker(ticker)
-    data = tick.history(period='1d')
-    closePrice = data['Close'][0]
+    data = tick.history
+    closePrice = data['Close'][-1]
     if(closePrice==None):
         return 0
     else:
