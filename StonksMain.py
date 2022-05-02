@@ -49,13 +49,14 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
         self.label.setText('Word')
 
     def enterPressed(self):
-        #stock=self.lineEdit.text()
-        #if stock=='':
-            #self.label_5.setText("works")
-        ##elif stock!='':
+        stock=self.lineEdit.text()
+        if stock=='':
+            self.label_5.setText("works")
+        elif stock!='':
             #self.getinfo
+            self.pushButton.clicked.connect(self.getinfo)
         #self.pushButton.clicked.connect(self.makePlot)
-        self.pushButton.clicked.connect(self.getinfo)
+        #self.pushButton.clicked.connect(self.getinfo)
 
     def getinfo(self):
         stock=self.lineEdit.text()
