@@ -54,12 +54,10 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
         if stock=='':
             self.label_5.setText("Stock Twitter Analysis")
         elif stock!='':
-            i=0
-            while(i<len(stocklist)):
-                if stocklist[i]!=stock:
+            for row in stocklist.index:
+                if stocklist.loc[row,'Symbol']!=stock:
                     self.label_5.setText("Stock Twitter Analysis")
-                    i=i+1
-                elif stocklist[i]==stock:
+                elif stocklist.loc[row,'Symbol']==stock:
                     self.getinfo()
                     self.makePlot()
             #self.pushButton.clicked.connect(self.getinfo)
