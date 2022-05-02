@@ -76,7 +76,7 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
 
             YearLow = str(round(getYearlyLow(stock), 2))
             ##self.label_11.setText('0')
-            self.label_11setText(YearLow)
+            self.label_11.setText(YearLow)
 
             openPrice = str(round(getOpenPrice(stock), 2))
             ##self.label_2.setText('0')
