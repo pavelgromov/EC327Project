@@ -126,10 +126,9 @@ class MplCanvas(FigureCanvasQTAgg):
 
 def main():
     app = QApplication(sys.argv)
-
     form = StonksGui()
     form.show()
-    app.exec()
+    app.exec_()
 
 
 if __name__ == '__main__':
