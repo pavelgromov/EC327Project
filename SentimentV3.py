@@ -28,8 +28,7 @@ def get_tweets(stock):
     
     result=client.search_recent_tweets(ticker,max_results=100,tweet_fields="text")
     result=result.json()
-    ##print(result.json())
-    #print(result)
+
     
     
     result=json.dumps(result, indent=4, sort_keys=True)
@@ -42,7 +41,6 @@ def get_tweets(stock):
 def getPolarity(tweets):
     cleaning=tweets
     score=analyzer.polarity_scores(tweets)
-    #print(score)
     scores=score.values()
     scores_list=list(scores)
     negative=scores_list[0]

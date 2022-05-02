@@ -42,7 +42,7 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
         self.label_12.setText(" ")
         self.label_13.setText(" ")
         # self.checkenter()
-        ##self.pushButton.clicked.connect(self.enterPressed)
+        self.pushButton.clicked.connect(self.enterPressed)
         self.enterPressed()
 
     def initUI(self):
@@ -51,11 +51,12 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
     def enterPressed(self):
         stock=self.lineEdit.text()
         if stock=='':
-            self.label_5.setText("works")
+            self.label_5.setText("Stock Twitter Analysis")
         elif stock!='':
-            #self.getinfo
-            self.pushButton.clicked.connect(self.getinfo)
-        #self.pushButton.clicked.connect(self.makePlot)
+            self.getinfo()
+            self.makePlot()
+            #self.pushButton.clicked.connect(self.getinfo)
+            #self.pushButton.clicked.connect(self.makePlot)
         #self.pushButton.clicked.connect(self.getinfo)
 
     def getinfo(self):
@@ -63,19 +64,14 @@ class StonksGui(QtWidgets.QMainWindow, newGui.Ui_MainWindow, QGraphicsView, QGra
         stock = stock.capitalize()
         self.label_5.setText("Stock Twitter Analysis")
         currPrice = str(round(getStockPrice(stock), 2))
-        print(currPrice)
         self.label.setText(currPrice)
         YearHigh = str(round(getYearlyHigh(stock), 2))
-        print(YearHigh)
         self.label_8.setText(YearHigh)
         YearLow = str(round(getYearlyLow(stock), 2))
-        print(YearLow)
         self.label_11.setText(YearLow)
         openPrice = str(round(getOpenPrice(stock), 2))
-        print(openPrice)
         self.label_2.setText(openPrice)
         closePrice = str(round(getClosePrice(stock), 2))
-        print(closePrice)
         self.label_6.setText(closePrice)
         # openPrice = str(round(getOpenPrice(stock),2))
         # YearLow = str(round(getYearlyLow(stock),2))
