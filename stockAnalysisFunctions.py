@@ -41,12 +41,12 @@ def getClosePrice(ticker):
         return closePrice
     
 
-def getYearlyHigh(ticker):
+def getYearlyHigh(ticker):      #get the year high of the stock 
     timeframe=yf.download(ticker,period="1y",auto_adjust=True,prepost=True,threads=True)
     yearHigh=timeframe['High'].max()
     return yearHigh
 
-def getYearlyLow(ticker):
+def getYearlyLow(ticker):   #get the year low of the stock
     timeframe=yf.download(ticker,period="1y",auto_adjust=True,prepost=True,threads=True)
     yearLow=timeframe['High'].min()
     return yearLow
