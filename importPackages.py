@@ -1,6 +1,7 @@
 import os
-os.system('cmd /c "python -m pip install --upgrade --force-reinstall pip"')
 import sys
+os.system('cmd /c "python -m pip install --upgrade --force-reinstall pip"')
+
 import subprocess
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'yfinance'])
 subprocess.check_call([sys.executable, '-m', 'pip', 'install', 'numpy'])

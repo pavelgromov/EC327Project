@@ -1,3 +1,7 @@
+import os
+import sys
+import venv
+venv.create('/Stonks')
 import importPackages
 from configparser import ExtendedInterpolation
 from errno import ENETRESET
